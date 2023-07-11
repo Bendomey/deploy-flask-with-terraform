@@ -54,7 +54,7 @@ resource "google_compute_firewall" "ssh" {
 }
 
 
-# Open port 5000 on the VM
+# Open port 5001 on the VM
 # To connect to the web server from your local computer, the VM must have port 5001 open. Google Cloud lets you open ports to traffic by using firewall rules.
 
 resource "google_compute_firewall" "flask" {
