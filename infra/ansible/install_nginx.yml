@@ -4,6 +4,14 @@
   become: yes # Use SUDO permission
   tasks:
     - name: Install nginx package
-      apt:
+      apt: # You can use package module for all OS
         name: nginx
-        state: latest
+        state: latest # To uninstall use "absent"
+        update_cache: yes # To update cache
+      when: ansible_os_family == "Debian" # To install only on Debian based OS
+    - name: Start nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+      when: ansible_os_family == "Debian" # To start only on Debian based OS
