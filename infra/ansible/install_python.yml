@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install python package
+      apt:
+        name: python3
+        state: latest

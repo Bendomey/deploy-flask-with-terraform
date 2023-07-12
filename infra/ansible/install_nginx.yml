@@ -1,0 +1,9 @@
+---
+
+- hosts: all # All Servers you're trying to host
+  become: yes # Use SUDO permission
+  tasks:
+    - name: Install nginx package
+      apt:
+        name: nginx
+        state: latest

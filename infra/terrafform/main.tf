@@ -1,5 +1,17 @@
-# Create A Virtual Private Cloud network and subnet for the VM's network interface.
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "4.73.0"
+    }
+  }
+}
 
+provider "google" {
+  credentials = file("/Users/domeybenjamin/.config/gcloud/application_default_credentials.json")
+}
+
+# Create A Virtual Private Cloud network and subnet for the VM's network interface.
 resource "google_compute_network" "vpc_network" {
   name                    = "flask-network"
   auto_create_subnetworks = false
